@@ -33,3 +33,39 @@ function btnGeneratePin(){
     // let inputField = document.getElementById("displayRandomNumber").value;
     
 }
+
+document.getElementById('calculator').addEventListener('click', function(event){
+    const number = event.target.innerText;
+    const typedNumberField = document.getElementById('typed-numbers');
+    const previousNumber = typedNumberField.value;
+
+    if(isNaN(number)){
+        if(number === 'C'){
+            typedNumberField.value = '';
+        }
+        else if(number === '<'){
+            const digits = previousNumber.split('');
+            digits.pop();
+            const remainingDigits = digits.join('');
+            typedNumberField.value = remainingDigits;
+        }
+    }
+
+    
+    else{
+        
+        const newTypedNumber = previousNumber + number;
+        typedNumberField.value = newTypedNumber;
+    }
+})
+
+// if(isNaN(Number)){
+//     console.log("thihijjjjs")
+// }
+// else{
+//     // const typedNumberField = document.getElementById('typed-numbers');
+//     // const previousNumber = typedNumberField.value;
+//     // const newTypedNumber = previousNumber + number;
+//     // typedNumberField.value = newTypedNumber;
+//     console.log(number);
+// }
