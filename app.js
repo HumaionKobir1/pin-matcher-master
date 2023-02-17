@@ -59,13 +59,24 @@ document.getElementById('calculator').addEventListener('click', function(event){
     }
 })
 
-// if(isNaN(Number)){
-//     console.log("thihijjjjs")
-// }
-// else{
-//     // const typedNumberField = document.getElementById('typed-numbers');
-//     // const previousNumber = typedNumberField.value;
-//     // const newTypedNumber = previousNumber + number;
-//     // typedNumberField.value = newTypedNumber;
-//     console.log(number);
-// }
+function verifyBtn(){
+    const displayPinField = document.getElementById('display-pin');
+    const currentPin = displayPinField.value;
+    const typedNumberField = document.getElementById('typed-numbers');
+    const pinWrongMessage = document.getElementById('pin-wrong');
+    const pinSuccessMessage = document.getElementById('pin-success');
+
+    const typedNumber = typedNumberField.value;
+
+    typedNumberField.value = '';
+    displayPinField.value = '';
+
+    if (currentPin === typedNumber){
+        pinSuccessMessage.style.display = 'block';
+        pinWrongMessage.style.display = 'none';
+    }
+    else{
+        pinWrongMessage.style.display = 'block';
+        pinSuccessMessage.style.display = 'none';
+    }
+}
